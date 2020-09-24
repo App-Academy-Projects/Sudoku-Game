@@ -1,5 +1,3 @@
-require 'colorize'
-
 require_relative 'Tile'
 
 FILE = "puzzles/sudoku1.txt"
@@ -74,14 +72,7 @@ class Board
         self.grid.each do |row|
             i = 1
             row.each do |tile|
-                val = tile.value
-                if tile.given == true
-                    color = :black 
-                else
-                    color = :red
-                end
-                val = " " if val == "0"
-                print " #{val} ".colorize(color).on_white
+                print " #{tile} ".colorize( :background => :white)
                 print '|' if i % 3 == 0
                 i += 1
             end

@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Tile
     attr_accessor :value
     attr_reader :given
@@ -6,8 +8,12 @@ class Tile
         @given = given
     end
 
+    def color
+        self.given ? :blue : :red
+    end
+
     def to_s
-        self.value.to_s
+        value == "0" ? " " : value.to_s.colorize(color)
     end
 
     def can_be_changed?
