@@ -1,3 +1,5 @@
+require 'colorize'
+
 require_relative 'Tile'
 
 class Board
@@ -71,8 +73,13 @@ class Board
             i = 1
             row.each do |tile|
                 val = tile.value
+                if tile.given == true
+                    color = :black 
+                else
+                    color = :red
+                end
                 val = " " if val == "0"
-                print " #{val} "
+                print " #{val} ".colorize(color).on_white
                 print '|' if i % 3 == 0
                 i += 1
             end
