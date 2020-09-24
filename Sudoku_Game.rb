@@ -1,5 +1,7 @@
 require_relative 'Board'
 
+FILE = "puzzles/sudoku1.txt"
+
 class SudokuGame
     attr_reader :board
     def initialize(data=nil)
@@ -37,6 +39,7 @@ class SudokuGame
     def valid_pos?(pos)
         return false if not pos 
         return false if pos.length != 2
+        return false if @board[pos].given == true
         pos.all? { |i| i.between?(0, 9) }
     end
 
