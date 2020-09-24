@@ -41,4 +41,27 @@ class Board
         row, col = pos[0], pos[1]
         self.grid[row][col] = value
     end
+
+    def update_tile(pos, val)
+        tile = self[pos]
+        if not valid_tile?(val)
+            prompt_Invalid_tile
+        elsif tile.can_be_changed? 
+            self[pos].value = val.to_s
+        else
+            prompt_cant_change_tile
+        end
+    end
+
+    def valid_tile?(tile_val)
+        tile_val.is_a?(Integer) && tile_val.between?(1, 9)
+    end
+
+    def prompt_cant_change_tile
+        puts "This is a given Tile, and can't change it!"
+    end
+
+    def prompt_Invalid_tile
+        puts "Invalid Tile"
+    end
 end

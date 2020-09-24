@@ -9,8 +9,8 @@ class Tile
         self.value.to_s
     end
 
-    def change_tile(new_value)
-        self.value = new_value if !self.given
+    def can_be_changed?
+        !self.given
     end
 
     private
