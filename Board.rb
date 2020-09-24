@@ -6,7 +6,7 @@ FILE = "puzzles/sudoku1.txt"
 class Board
     attr_accessor :grid
     attr_reader :size
-    def initialize(data=Board.from_file(FILE))
+    def initialize(data)
         @size = data.length
         @grid = Array.new(size) { Array.new(size) }
         fill_grid_with_data(data)
