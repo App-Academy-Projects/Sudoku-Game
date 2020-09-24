@@ -13,6 +13,10 @@ class Tile
         !self.given
     end
 
+    def filled?
+        self.value != "0"
+    end
+
     private
     attr_reader :given
 end

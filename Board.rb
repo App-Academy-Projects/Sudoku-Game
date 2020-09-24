@@ -69,7 +69,9 @@ class Board
         j = 1
         self.grid.each do |row|
             i = 1
-            row.each do |val|
+            row.each do |tile|
+                val = tile.value
+                val = " " if val == "0"
                 print " #{val} "
                 print '|' if i % 3 == 0
                 i += 1
@@ -83,5 +85,9 @@ class Board
 
     def dashed_line
         puts "-" * 30
+    end
+
+    def solved?
+        self.grid.all? { |row| row.all? { |tile| tile.filled? } }
     end
 end
