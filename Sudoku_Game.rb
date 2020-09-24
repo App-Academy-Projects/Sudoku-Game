@@ -9,6 +9,8 @@ class SudokuGame
 
     def play
         until board.solved?
+            system("clear")
+            board.render
             pos = nil
             until valid_pos?(pos)
                 prompt_for_pos
@@ -19,11 +21,12 @@ class SudokuGame
                 prompt_for_value
                 val = input_value
             end
+            board.update_tile(pos, val)
         end
     end
     
     def prompt_for_pos
-        puts "Enter a position of tile Ex.`0 2`"
+        print "Enter a position of tile Ex.`0 2`: "
     end
 
     def input_pos
@@ -38,7 +41,7 @@ class SudokuGame
     end
 
     def prompt_for_value
-        puts "Enter a new value for the tile Ex.`5`"
+        print "Enter a new value for the tile Ex.`5`: "
     end
 
     def input_value
