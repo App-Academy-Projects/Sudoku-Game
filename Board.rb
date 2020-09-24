@@ -64,4 +64,24 @@ class Board
     def prompt_Invalid_tile
         puts "Invalid Tile"
     end
+
+    def render
+        j = 1
+        self.grid.each do |row|
+            i = 1
+            row.each do |val|
+                print " #{val} "
+                print '|' if i % 3 == 0
+                i += 1
+            end
+            puts
+            dashed_line if j % 3 == 0
+            j += 1
+        end
+        nil
+    end
+
+    def dashed_line
+        puts "-" * 30
+    end
 end
