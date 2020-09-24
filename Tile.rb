@@ -1,8 +1,8 @@
 class Tile
     attr_accessor :value
-    def initialize(value)
+    def initialize(value, given)
         @value = value
-        @given = false
+        @given = given
     end
 
     def to_s
@@ -14,5 +14,5 @@ class Tile
     end
 
     private
-    attr_accessor :given
+    attr_reader :given
 end
