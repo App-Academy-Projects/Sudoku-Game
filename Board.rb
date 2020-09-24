@@ -2,12 +2,14 @@ require 'colorize'
 
 require_relative 'Tile'
 
+FILE = "puzzles/sudoku1.txt"
 class Board
     attr_accessor :grid
     attr_reader :size
-    def initialize(data)
+    def initialize(data=Board.from_file(FILE))
         @size = data.length
         @grid = Array.new(size) { Array.new(size) }
+        fill_grid_with_data(data)
     end
 
     def self.from_file(file)
